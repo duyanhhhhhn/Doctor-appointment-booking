@@ -64,6 +64,12 @@
     "Premium": {
       "type": "boolean",
       "required": true
+    },
+    "appointments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::appointment.appointment",
+      "mappedBy": "doctors"
     }
   }
 }
