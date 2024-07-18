@@ -8,7 +8,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { Button } from "@/components/ui/button";
 
 const Header = () => {
     const Menu = [
@@ -34,13 +33,13 @@ const Header = () => {
 
     useEffect(() => {
     },[user])
-    return (<div className="flex items-center justify-between p-4 shadow-sm">
-        <div className="flex items-center gap-10">
+    return (<div class="flex items-center justify-between p-4 shadow-sm">
+        <div class="flex items-center gap-10">
              <Image src='/logo.svg' alt="logo" width={180} height={80} />
-        <ul className="md:flex gap-8 hidden"> 
+        <ul class="md:flex gap-8 hidden"> 
                 {Menu.map((item, index) => 
                     <Link href={item.path}  key={index}>
-                    <li className="hover:text-primary cursor-pointer hover:scale-75 transition-all ease-in-out" >{item.name}</li>
+                    <li class="hover:text-primary cursor-pointer hover:scale-75 transition-all ease-in-out" >{item.name}</li>
                     </Link>
                     )}
         </ul>
@@ -51,16 +50,14 @@ const Header = () => {
                         <PopoverTrigger>
                             <Image src={user?.picture} alt="profile-image" width={50} height={50} className="rounded-full" />
                         <PopoverContent className="w-44">
-                            <ul className="flex flex-col gap-2">
-                                <li className="cursor-pointer hover:bg-slate-100 p-2 rounded-md">Profile</li>
-                                <li className="cursor-pointer hover:bg-slate-100 p-2 rounded-md">My booking</li>
-                                <li className="cursor-pointer hover:bg-slate-100 p-2 rounded-md"><LogoutLink>Logout</LogoutLink></li>
+                            <ul class="flex flex-col gap-2">
+                                <li class="cursor-pointer hover:bg-slate-100 p-2 rounded-md">Profile</li>
+                                <Link href={'/my-booking'} class="cursor-pointer hover:bg-slate-100 p-2 rounded-md">My booking</Link>
+                                <li class="cursor-pointer hover:bg-slate-100 p-2 rounded-md"><LogoutLink>Logout</LogoutLink></li>
                             </ul>
                 </PopoverContent>
                 </PopoverTrigger>
                 </Popover>
-                {/* <Button variant="outline">Logout</Button> */}
-
             </>
             : 
         <LoginLink>
